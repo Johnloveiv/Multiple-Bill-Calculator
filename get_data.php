@@ -3,6 +3,7 @@
 //setup database
 try {
         $dbh = new PDO("mysql:host=localhost;dbname=test" , 'root', 'likes69');
+    
     }
 catch(PDOException $e)
     {
