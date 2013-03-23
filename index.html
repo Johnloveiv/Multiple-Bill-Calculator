@@ -13,6 +13,12 @@
 
         <link rel="stylesheet" href="css/readable.bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <style>
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+        </style>
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
@@ -27,17 +33,10 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="#">Sentencing Calculator</a>
+                    <a class="brand" href="#">Multiple Bill Sentencing Calculator</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="active"><a href="#">Home</a></li>
                             <li><a href="#about">About</a></li>
-                            <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
@@ -45,24 +44,23 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                <h1>Multiple Bill Sentence Calculator</h1>
-                    <fieldset>
-                        <legend>Answer these Questions:</legend>
-                        <label>My Client is a:</label>
-                        <div class="btn-group bill-status-select" data-toggle="buttons-radio">
-                            <button class="btn btn-large btn-primary">Double</button>
-                            <button class="btn btn-large btn-primary">Triple</button>
-                            <button class="btn btn-large btn-primary">Quad</button>
-                        </div>
-                        <input type="hidden" name="billStatus">
-                        <br /><br />
-                        <label>My Client is currently charged with:</label>
-                        <input type="text" id="selectr" data-link="data.json" class="ajax-typeahead input-xxlarge" data-provide="typeahead" autocomplete="off" placeholder="Name or Statute Number of Offense">
-                        </label>
-                    </fieldset>
-            </div>
-            <div class="row answer">
+            <p class="lead">
+                Answer these questions to determine your client's possible sentencing range:
+            </p>
+            <fieldset>
+                <label>My Client is a:</label>
+                <div class="btn-group bill-status-select" data-toggle="buttons-radio">
+                    <button class="btn btn-large btn-primary">Double</button>
+                    <button class="btn btn-large btn-primary">Triple</button>
+                    <button class="btn btn-large btn-primary">Quad</button>
+                </div>
+                <input type="hidden" name="billStatus">
+                <br /><br />
+                <label>My Client is currently charged with:</label>
+                <input type="text" id="selectr" data-link="data.json" class="ajax-typeahead input-xxlarge" data-provide="typeahead" autocomplete="off" placeholder="Name or Statute Number of Offense">
+                </label>
+            </fieldset>
+            <div class="answer">
                 <script id="answer-template" type="text/x-handlebars-template">
 
                 <p>The sentencing range is <b>{{rangeMin}}</b> to <b>{{rangeMax}}</b>.</p>
