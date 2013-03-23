@@ -32,9 +32,11 @@ $(document).ready(function () {
                 var maxStncMnths = maxStnc * 12;
                 var rangeMin; //computed min sentence
                 var rangeMax; //computed max sentence
-                var billStatus = $('input[name="billStatus"]').val();
+                var billStatus = $('input[name="billStatus"]').val().toLowerCase();
+                var fraction; 
                 switch (billStatus) {
-                case 'Double':
+                case 'double':
+                    fraction = 'one half';
                     if (maxStnc % 2 == 0){ //max sentence divides evenly
                         rangeMin = maxStnc / 2 + ' years';
                         rangeMax = maxStnc * 2 + ' years';
@@ -44,7 +46,8 @@ $(document).ready(function () {
                         rangeMax = maxStnc * 2 + ' years';
                     }
                     break;
-                case 'Triple':
+                case 'triple':
+                    fraction = 'two-thirds';
                     if (maxStnc % 3 == 0){ //max sentence divides evenly
                         rangeMin = (maxStnc / 3) * 2  + ' years'; // 2/3 the max
                         rangeMax = maxStnc * 2 + ' years';
@@ -54,7 +57,7 @@ $(document).ready(function () {
                         rangeMax = maxStnc * 2 + ' years';
                     }
                     break;
-                case 'Quad':
+                case 'quad':
                     // code
                     break;
                 default:
@@ -64,7 +67,7 @@ $(document).ready(function () {
                 var source   = $('#answer-template').html();
                 var template = Handlebars.compile(source);
                 var answerData = {'rangeMin': rangeMin, 'rangeMax': rangeMax,
-                'offense': offenseTxt, 'stncMax': maxStnc };
+                'offense': offenseTxt, 'fraction': fraction, 'stncMax': maxStnc, 'billStatus': billStatus };
                 var answer = template(answerData);
                 $('.answer').html(answer).show();
             }
