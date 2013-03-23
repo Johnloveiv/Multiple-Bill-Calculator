@@ -17,7 +17,7 @@ $(document).ready(function () {
             source: lawNames
         });
 
-        $('.btn').click(function () {
+        $('bill-status-select .btn').click(function () {
 
             if ($('#selectr').val() === '') {
                 alert('Please select an offense');
