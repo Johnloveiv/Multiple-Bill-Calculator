@@ -80,5 +80,7 @@ $(document).ready(function () {
 
     $('div.answer').on('click', 'button', function () {
         $('#selectr').val('');
+        $('.bill-status-select button').removeClass('active');
+        $('.answer').hide();
     });
 });

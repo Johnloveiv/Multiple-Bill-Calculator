@@ -28,8 +28,6 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
-
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -69,13 +67,13 @@
             </fieldset>
             </div>
             <div class="answer well">
-                <script id="answer-template" type="text/x-handlebars-template">
-
-                <p>The sentencing range is <b>{{rangeMin}}</b> to <b>{{rangeMax}}</b>.</p>
-                <p>Explanation: The maximum sentence <b>{{offense}}</b> is <b>{{stncMax}}</b> years.
-                <p><button class="btn btn-large btn-primary reset">Try Again</button></p>
-                </script>
+            
             </div>
+            <script id="answer-template" type="text/x-handlebars-template">
+            <p>The sentencing range is <b>{{rangeMin}}</b> to <b>{{rangeMax}}</b>.</p>
+            <p>Explanation: The maximum sentence <b>{{offense}}</b> is <b>{{stncMax}}</b> years.
+            <p><button class="btn btn-large btn-primary reset">Try Again</button></p>
+            </script>
         </div> <!-- /container -->
         <div class="navbar navbar-fixed-bottom hidden-phone">
             <div class="container">
