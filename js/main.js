@@ -17,10 +17,10 @@ $(document).ready(function () {
             source: lawNames
         });
 
-        $('#selectr').change(function () {
+        $('.btn').click(function () {
 
-            if ($('input[name="billStatus"]').val() === '') {
-                alert('Please select your client\'s bill status');
+            if ($('#selectr').val() === '') {
+                alert('Please select an offense');
                 return;
             }
 

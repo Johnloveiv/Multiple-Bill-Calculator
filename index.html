@@ -38,7 +38,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Multiple Bill Sentencing Calculator</a>
+                    <a class="brand" href="#">Multiple Bill Calculator</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="active"><a href="#">Home</a></li>
@@ -55,20 +55,21 @@
             <p class="lead">
                 Answer these questions to determine your client's possible sentencing range:
             </p>
+            <div class="well">
             <fieldset>
-                <label>My Client is a:</label>
+                <label>1. My Client is currently charged with:</label>
+                <input type="text" id="selectr" data-link="data.json" class="ajax-typeahead input-xxlarge" data-provide="typeahead" autocomplete="off" placeholder="Name or Statute Number of Offense">
+                <input type="hidden" name="billStatus">
+                </label>
+                <label>2. My Client is a:</label>
                 <div class="btn-group bill-status-select" data-toggle="buttons-radio">
                     <button class="btn btn-large btn-primary">Double</button>
                     <button class="btn btn-large btn-primary">Triple</button>
                     <button class="btn btn-large btn-primary">Quad</button>
                 </div>
-                <input type="hidden" name="billStatus">
-                <br /><br />
-                <label>My Client is currently charged with:</label>
-                <input type="text" id="selectr" data-link="data.json" class="ajax-typeahead input-xxlarge" data-provide="typeahead" autocomplete="off" placeholder="Name or Statute Number of Offense">
-                </label>
             </fieldset>
-            <div class="answer">
+            </div>
+            <div class="answer well">
                 <script id="answer-template" type="text/x-handlebars-template">
 
                 <p>The sentencing range is <b>{{rangeMin}}</b> to <b>{{rangeMax}}</b>.</p>
@@ -78,7 +79,11 @@
             </div>
         
         </div> <!-- /container -->
-
+        <div class="navbar navbar-fixed-bottom hidden-phone">
+            <div class="container">
+                <p class="pull-right"><small>Project by Ryan Gaudet and John Love Norris, IV</small></p>
+            </div>
+        </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
 
