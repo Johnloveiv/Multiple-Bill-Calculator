@@ -27,24 +27,37 @@ $(document).ready(function () {
             var maxStnc = lawIds[$('#selectr').val()];
             var offenseTxt = $('#selectr').val();
 
+            //If max sentence is a number, do the math
             if ($.isNumeric(maxStnc)) {
                 var maxStncMnths = maxStnc * 12;
-                var rangeMin;
-                var rangeMax;
+                var rangeMin; //computed min sentence
+                var rangeMax; //computed max sentence
                 var billStatus = $('input[name="billStatus"]').val();
                 switch (billStatus) {
-                    case 'Double':
-                        rangeMin = maxStncMnths / 2;
-                        rangeMax = maxStncMnths * 2;
-                        break;
-                    case 'Triple':
-                        rangeMin = maxStncMnths / 2/3;
-                        rangeMax = maxStncMnths * 2;
-                        break;
-                    case 'Quad':
-                        // code
-                        break;
-                    default:
+                case 'Double':
+                    if (maxStnc % 2 == 0){ //max sentence divides evenly
+                        rangeMin = maxStnc / 2 + ' years';
+                        rangeMax = maxStnc * 2 + ' years';
+                    }
+                    else {
+                        rangeMin = maxStncMnths / 2 + ' months';
+                        rangeMax = maxStnc * 2 + ' years';
+                    }
+                    break;
+                case 'Triple':
+                    if (maxStnc % 3 == 0){ //max sentence divides evenly
+                        rangeMin = (maxStnc / 3) * 2  + ' years'; // 2/3 the max
+                        rangeMax = maxStnc * 2 + ' years';
+                    }
+                    else {
+                        rangeMin = (maxStncMnths / 3) * 2 + ' months';
+                        rangeMax = maxStnc * 2 + ' years';
+                    }
+                    break;
+                case 'Quad':
+                    // code
+                    break;
+                default:
 
                 }
                 //alert('range is ' + rangeMin + ' months to ' + rangeMax + ' months');
@@ -63,5 +76,9 @@ $(document).ready(function () {
 
     $('.bill-status-select button').click(function () {
         $('input[name="billStatus"]').val($(this).text());
+    });
+
+    $('div.answer').on('click', 'button', function () {
+        $('#selectr').val('');
     });
 });
