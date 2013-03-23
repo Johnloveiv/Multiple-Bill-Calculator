@@ -11,7 +11,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/readable.bootstrap.min.css">
         <style>
             body {
                 padding-top: 60px;
@@ -55,18 +55,25 @@
                     <fieldset>
                         <legend>Answer these Questions:</legend>
                         <label>My Client is a:</label>
-                        <div class="btn-group selectr" data-toggle="buttons-radio">
+                        <div class="btn-group bill-status-select" data-toggle="buttons-radio">
                             <button class="btn btn-large btn-primary">Double</button>
                             <button class="btn btn-large btn-primary">Triple</button>
                             <button class="btn btn-large btn-primary">Quad</button>
                         </div>
+                        <input type="hidden" name="billStatus">
+                        <br /><br />
                         <label>My Client is currently charged with:</label>
-                        <input type="text" id="selectr" data-link="data.json" class="ajax-typeahead" data-provide="typeahead" autocomplete="off">
+                        <input type="text" id="selectr" data-link="data.json" class="ajax-typeahead input-xxlarge" data-provide="typeahead" autocomplete="off" placeholder="Name or Statute Number of Offense">
                         </label>
                     </fieldset>
             </div>
-            <div class="row">
-                
+            <div class="row answer">
+                <script id="answer-template" type="text/x-handlebars-template">
+
+                <p>The sentencing range is <b>{{rangeMin}}</b> to <b>{{rangeMax}}</b>.</p>
+                <p>Explanation: The maximum sentence <b>{{offense}}</b> is <b>{{stncMax}}</b> years.
+               
+                </script>
             </div>
         
         </div> <!-- /container -->
@@ -75,18 +82,10 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/handlebars.js"></script>
 
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
-        <!--
-        <script src="js/vendor/lawnchair/Lawnchair.js"></script> 
-        <script src="js/vendor/lawnchair/plugins/query.js"></script> 
-        <script src="js/vendor/lawnchair/adapters/dom.js"></script> 
-        <script src="js/vendor/lawnchair/adapters/webkit-sqlite.js"></script> 
-        <script src="js/vendor/lawnchair/adapters/indexed-db.js"></script> 
-        <script src="js/vendor/lawnchair/adapters/ie-userdata.js"></script> 
-        <script src="js/vendor/lawnchair/adapters/blackberry-persistent-storage.js"></script> 
-        -->
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
