@@ -5,6 +5,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
+        <title>About Multiple Bill Calculator</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title></title>
@@ -33,7 +34,7 @@
                     <a class="brand" href="index.html">Multiple Bill Calculator</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li><a href="about.html">About</a></li>
+                            <li class="active"><a href="about.html">About</a></li>
                             <li><a href="mailto:jmitchel@loyno.edu?subject=Beta">Beta Testers</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
@@ -42,50 +43,17 @@
         </div>
 
         <div class="container">
-            <p class="lead">
-                Answer these questions to determine your client's possible sentencing range:
-            </p>
-            <div class="well">
-            <fieldset>
-                <label>1. My Client is currently charged with:</label>
-                <input type="text" id="selectr" data-link="data.json" class="ajax-typeahead input-xxlarge" data-provide="typeahead" autocomplete="off" placeholder="Name or Statute Number of Offense">
-                <input type="hidden" name="billStatus">
-                </label>
-                <label>2. My Client is a:</label>
-                <div class="btn-group bill-status-select" data-toggle="buttons-radio">
-                    <button class="btn btn-large btn-primary">Double</button>
-                    <button class="btn btn-large btn-primary">Triple</button>
-                    <button class="btn btn-large btn-primary">Quad</button>
-                </div>
-            </fieldset>
-            </div>
-            <div class="answer well">
-            
-            </div>
-            <script id="answer-template" type="text/x-handlebars-template">
-            <p><b>Answer:</b> The sentencing range is <b>{{rangeMin}}</b> to <b>{{rangeMax}}</b>.</p>
-            <p><b>Explanation:</b> The maximum sentence for <b>{{offense}}</b> is <b>{{stncMax}}</b> years. The minimum sentence
-            for a {{ billStatus}} offender is calculated by finding {{fraction}} of the maximimum sentence
-            for <b>{{offense}}</b> which is <b>{{rangeMin}}</b>.   The maximum sentence for a {{ billStatus}} offender is 
-            calculated by doubling the maximum sentence for <b>{{offense}}</b>  which is <b>{{rangeMax}}</b>. Please  
-            <a target="_new" href="http://hueylaw.org/site/index.php?type=fuzzy&s=la%20rs%2015.529.1">consult the statute</a>
-            for more information</p>
-            <p><button class="btn btn-large btn-primary reset">Try Again</button></p>
-            </script>
+            <p class="lead">About Multiple Bill Calculator</p> 
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. </p>
+
+            <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. </p>
+
         </div> <!-- /container -->
-        <div class="navbar navbar-fixed-bottom hidden-phone">
-            <div class="container">
-                <p class="pull-right muted"><small>Project by Ryan Gaudet and John Love Norris, IV</small></p>
-            </div>
-        </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/vendor/handlebars.js"></script>
 
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -93,4 +61,4 @@
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
     </body>
-</html>
+<
