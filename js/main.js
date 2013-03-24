@@ -24,29 +24,29 @@ $(document).ready(function () {
                 return;
             }
 
-            var maxStnc = lawIds[$('#selectr').val()];
-            var offenseTxt = $('#selectr').val();
-            var source = $('#answer-template').html();
-            var template = Handlebars.compile(source);
-            var answerData;
-            var answer;
-            var monthVal;
-            var yearVal;
-            var monthTxt;
-            var yearTxt;
+            var maxStnc = lawIds[$('#selectr').val()]; //integer, maximum sentence
+            var offenseTxt = $('#selectr').val();      //string, title of offense
+            var source = $('#answer-template').html(); //location of handlebars template
+            var template = Handlebars.compile(source); //handlebars template
+            var answerData;                            //template data in json
+            var answer;                                //compiled template
+            var monthVal;                              //number of months on min sentence
+            var yearVal;                               //number of years on min sentence
+            var monthTxt;                              //string, "month" or "months"
+            var yearTxt;                               //string, "year" or "years"
 
             //If max sentence is a number, do the math
             if ($.isNumeric(maxStnc)) {
                 var maxStncMnths = maxStnc * 12;
-                var rangeMin; //computed min sentence
-                var rangeMax; //computed max sentence
+                var rangeMin; //integer, computed min sentence
+                var rangeMax; //integer, computed max sentence
                 var billStatus = $('input[name="billStatus"]').val().toLowerCase();
                 var fraction;
 
                 switch (billStatus) {
                 case 'double':
                     fraction = 'one-half';
-                    if (maxStnc % 2 == 0){ //max sentence divides evenly
+                    if (maxStnc % 2 == 0){ //if max sentence divides evenly
                         rangeMin = maxStnc / 2 + ' years';
                         rangeMax = maxStnc * 2 + ' years';
                     }
@@ -68,7 +68,7 @@ $(document).ready(function () {
                     break;
                 case 'triple':
                     fraction = 'two-thirds';
-                    if (maxStnc % 3 == 0){ //max sentence divides evenly
+                    if (maxStnc % 3 == 0){ //if max sentence divides evenly
                         rangeMin = (maxStnc / 3) * 2  + ' years'; // 2/3 the max
                         rangeMax = maxStnc * 2 + ' years';
                     }
