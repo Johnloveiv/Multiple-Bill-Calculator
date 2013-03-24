@@ -13,7 +13,7 @@ $(document).ready(function () {
             });
 
         $('#selectr').typeahead({
-            items: 6,
+            items: 8,
             source: lawNames
         });
 
