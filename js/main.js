@@ -34,6 +34,7 @@ $(document).ready(function () {
             var yearVal;                               //number of years on min sentence
             var monthTxt;                              //string, "month" or "months"
             var yearTxt;                               //string, "year" or "years"
+            var quadCase = null;                       //quad gets special treatment
 
             //If max sentence is a number, do the math
             if ($.isNumeric(maxStnc)) {
@@ -51,16 +52,14 @@ $(document).ready(function () {
                         rangeMax = maxStnc * 2 + ' years';
                     }
                     else {
-                        if (maxStncMnths > 12)
-                        {
+                        if (maxStncMnths > 12) {
                             monthVal = (maxStncMnths / 2) % 12;
                             yearVal = Math.floor(maxStnc / 2);
                             monthTxt = (monthVal > 1) ? 'months' : 'month';
                             yearTxt = (yearVal > 1) ? 'years' : 'year';
                             rangeMin =  yearVal + ' ' +  yearTxt + ', '  + monthVal + ' ' +  monthTxt;
                         }
-                        else
-                        {
+                        else {
                             rangeMin = maxStncMnths / 2 + ' months';
                         }
                         rangeMax = maxStnc * 2 + ' years';
@@ -68,34 +67,40 @@ $(document).ready(function () {
                     break;
                 case 'triple':
                     fraction = 'two-thirds';
-                    if (maxStnc % 3 == 0){ //if max sentence divides evenly
+                    if (maxStnc % 3 == 0) { //if max sentence divides evenly
                         rangeMin = (maxStnc / 3) * 2  + ' years'; // 2/3 the max
                         rangeMax = maxStnc * 2 + ' years';
                     }
                     else {
-                        if (maxStncMnths > 12)
-                        {
+                        if (maxStncMnths > 12) {
                             monthVal = (maxStncMnths / 3 * 2) % 12;
                             yearVal = Math.floor(maxStnc / 3 * 2);
                             monthTxt = (monthVal > 1) ? 'months' : 'month';
                             yearTxt = (yearVal > 1) ? 'years' : 'year';
                             rangeMin =  yearVal + ' ' +  yearTxt + ', '  + monthVal + ' ' +  monthTxt;
                         }
-                        else
-                        {
+                        else {
                             rangeMin = (maxStncMnths / 3) * 2 + ' months';
                         }
                         rangeMax = maxStnc * 2 + ' years';
                     }
                     break;
                 case 'quad':
-                    // code
+                    if (maxStnc < 20) {
+                        rangeMin = '20 years';
+                    }
+                    else {
+                        rangeMin = maxStnc + ' years';
+                    }
+                    rangeMax = 'life';
+                    quadCase = 'true';
                     break;
                 default:
 
                 }
                 answerData = {'rangeMin': rangeMin, 'rangeMax': rangeMax,
-                'offense': offenseTxt, 'fraction': fraction, 'stncMax': maxStnc, 'billStatus': billStatus };
+                'offense': offenseTxt, 'fraction': fraction, 'stncMax': maxStnc,
+                'billStatus': billStatus,'quad':quadCase };
                 answer = template(answerData);
                 $('.answer').html(answer).show();
             }
