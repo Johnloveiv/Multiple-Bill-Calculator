@@ -30,6 +30,10 @@ $(document).ready(function () {
             var template = Handlebars.compile(source);
             var answerData;
             var answer;
+            var monthVal;
+            var yearVal;
+            var monthTxt;
+            var yearTxt;
 
             //If max sentence is a number, do the math
             if ($.isNumeric(maxStnc)) {
@@ -41,13 +45,24 @@ $(document).ready(function () {
 
                 switch (billStatus) {
                 case 'double':
-                    fraction = 'one half';
+                    fraction = 'one-half';
                     if (maxStnc % 2 == 0){ //max sentence divides evenly
                         rangeMin = maxStnc / 2 + ' years';
                         rangeMax = maxStnc * 2 + ' years';
                     }
                     else {
-                        rangeMin = maxStncMnths / 2 + ' months';
+                        if (maxStncMnths > 12)
+                        {
+                            monthVal = (maxStncMnths / 2) % 12;
+                            yearVal = Math.floor(maxStnc / 2);
+                            monthTxt = (monthVal > 1) ? 'months' : 'month';
+                            yearTxt = (yearVal > 1) ? 'years' : 'year';
+                            rangeMin =  yearVal + ' ' +  yearTxt + ', '  + monthVal + ' ' +  monthTxt;
+                        }
+                        else
+                        {
+                            rangeMin = maxStncMnths / 2 + ' months';
+                        }
                         rangeMax = maxStnc * 2 + ' years';
                     }
                     break;
@@ -58,7 +73,18 @@ $(document).ready(function () {
                         rangeMax = maxStnc * 2 + ' years';
                     }
                     else {
-                        rangeMin = (maxStncMnths / 3) * 2 + ' months';
+                        if (maxStncMnths > 12)
+                        {
+                            monthVal = (maxStncMnths / 3 * 2) % 12;
+                            yearVal = Math.floor(maxStnc / 3 * 2);
+                            monthTxt = (monthVal > 1) ? 'months' : 'month';
+                            yearTxt = (yearVal > 1) ? 'years' : 'year';
+                            rangeMin =  yearVal + ' ' +  yearTxt + ', '  + monthVal + ' ' +  monthTxt;
+                        }
+                        else
+                        {
+                            rangeMin = (maxStncMnths / 3) * 2 + ' months';
+                        }
                         rangeMax = maxStnc * 2 + ' years';
                     }
                     break;
