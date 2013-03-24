@@ -26,6 +26,10 @@ $(document).ready(function () {
 
             var maxStnc = lawIds[$('#selectr').val()];
             var offenseTxt = $('#selectr').val();
+            var source = $('#answer-template').html();
+            var template = Handlebars.compile(source);
+            var answerData;
+            var answer;
 
             //If max sentence is a number, do the math
             if ($.isNumeric(maxStnc)) {
@@ -33,7 +37,8 @@ $(document).ready(function () {
                 var rangeMin; //computed min sentence
                 var rangeMax; //computed max sentence
                 var billStatus = $('input[name="billStatus"]').val().toLowerCase();
-                var fraction; 
+                var fraction;
+
                 switch (billStatus) {
                 case 'double':
                     fraction = 'one half';
@@ -63,16 +68,15 @@ $(document).ready(function () {
                 default:
 
                 }
-                //alert('range is ' + rangeMin + ' months to ' + rangeMax + ' months');
-                var source   = $('#answer-template').html();
-                var template = Handlebars.compile(source);
-                var answerData = {'rangeMin': rangeMin, 'rangeMax': rangeMax,
+                answerData = {'rangeMin': rangeMin, 'rangeMax': rangeMax,
                 'offense': offenseTxt, 'fraction': fraction, 'stncMax': maxStnc, 'billStatus': billStatus };
-                var answer = template(answerData);
+                answer = template(answerData);
                 $('.answer').html(answer).show();
             }
             else {
-                alert(maxStnc);
+                answerData = {'noNumber': maxStnc, 'offense': offenseTxt };
+                answer = template(answerData);
+                $('.answer').html(answer).show();
             }
         });
     });
