@@ -127,7 +127,7 @@ $(document).ready(function () {
                 var triggerWord = false;
                 var parts = offenseTxt.split(' ');
                 $.each(parts, function (index, value) {
-                    if ($.inArray(value, caveatTriggers) > -1) {
+                    if ($.inArray(value.toLowerCase(), caveatTriggers) > -1) {
                         triggerWord = true;
                     }
                 });
