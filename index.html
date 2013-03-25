@@ -80,6 +80,7 @@
                 calculated by doubling the maximum sentence for this offense which is <b>{{rangeMax}}</b>.
                 {{/if}}
             {{/if}}
+            {{#if caveat}}
             {{#if double}}
             <p><b>Caveats:</b></p>
             <p>1) If this offense and your client's prior offense are <a href="http://hueylaw.org/site/index.php?type=docid&s=79160">
@@ -89,7 +90,7 @@
             probation, parole, or suspension of sentence.</p>
             {{/if}}
             {{#if triple}}
-            <p><b>Caveats:</b></p>
+            <p><b>Caveat:</b></p>
             <p>If this offense and your client's prior two offenses are
             <a href="http://hueylaw.org/site/index.php?type=docid&s=78337">crimes of violence</a>,
             <a href="http://hueylaw.org/site/index.php?type=docid&s=79160"> sex offenses</a> where the victims were under the
@@ -99,7 +100,7 @@
             probation, parole, or suspension of sentence.</p>
             {{/if}}
             {{#if quad}}
-            <p><b>Caveats:</b></p>
+            <p><b>Caveat:</b></p>
             <p>If this offense and two of your client's prior three offenses are
             <a href="http://hueylaw.org/site/index.php?type=docid&s=78337">crimes of violence</a>,
             <a href="http://hueylaw.org/site/index.php?type=docid&s=79160"> sex offenses</a> where the victims were under the
@@ -107,6 +108,7 @@
             or any offense for which the sentence can be 12 years of more, or any combination of these offenses, then the sentence is
             <b>life</b> without benefit of 
             probation, parole, or suspension of sentence.</p>
+            {{/if}}
             {{/if}}
             Please  <a target="_new" href="http://hueylaw.org/site/index.php?type=docid&s=79154">consult the statute</a>
             for more information.</p> <p><button class="btn btn-large btn-primary reset">Try Again</button></p>

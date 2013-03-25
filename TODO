@@ -16,3 +16,11 @@ Deal with special enhancements :
         -any offense with sentence of 12 years or more
         -or any combination of these
         then life
+
+Make caveats conditional?
+
+var caveatTriggers = [battery, murder, manslaughter, AIDS, harmful, rape, assault, kidnapping, arson, aggravated, robbery, extortion,
+purse, disarming, invasion, trafficking, cruelty, terrorism, dangerous, stalking, incest, nature, carnal, indecent, pornography, molestation, solicitation, sexual, delinquency, voyeurism];
+or
+Max Sentence >= 10
+

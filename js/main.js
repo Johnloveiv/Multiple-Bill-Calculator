@@ -121,6 +121,21 @@ $(document).ready(function () {
                     answerData.quad = 'true';
                     break;
                 }
+
+                //Try to create a logic that tells us if we need to put in a caveat
+                var caveatTriggers = ['battery', 'murder', 'manslaughter', 'AIDS', 'harmful', 'rape', 'assault', 'kidnapping', 'arson', 'aggravated', 'robbery', 'extortion', 'purse', 'disarming', 'invasion', 'trafficking', 'cruelty', 'terrorism', 'dangerous', 'stalking', 'incest', 'nature', 'carnal', 'indecent', 'pornography', 'molestation', 'solicitation', 'sexual', 'delinquency', 'voyeurism'];
+                var triggerWord = false;
+                var parts = offenseTxt.split(' ');
+                $.each(parts, function (index, value) {
+                    if ($.inArray(value, caveatTriggers) > -1) {
+                        triggerWord = true;
+                    }
+                });
+
+                if (triggerWord || maxStnc >= 10) {
+                    $.extend(answerData, {'caveat': true});
+                }
+
                 $.extend(answerData, {'rangeMin': rangeMin, 'rangeMax': rangeMax,
                 'offense': offenseTxt, 'fraction': fraction, 'stncMax': maxStnc,
                 'billStatus': billStatus, 'sexMin': sexMin, 'sexMax': sexMax});
