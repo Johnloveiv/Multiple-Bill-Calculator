@@ -28,12 +28,16 @@ $(document).ready(function () {
             var offenseTxt = $('#selectr').val();      //string, title of offense
             var source = $('#answer-template').html(); //location of handlebars template
             var template = Handlebars.compile(source); //handlebars template
-            var answerData;                            //template data in json
+            var answerData = {};                       //template data in json
             var answer;                                //compiled template
             var monthVal;                              //number of months on min sentence
             var yearVal;                               //number of years on min sentence
+            var sexMonthVal;                           //sex offdr: number of months on min sentence
+            var sexYearVal;                            //sex offdr: number of years on min sentence
             var monthTxt;                              //string, "month" or "months"
             var yearTxt;                               //string, "year" or "years"
+            var sexMonthTxt;                           //sex offdr: string, "month" or "months"
+            var sexYearTxt;                            //sex offdr: string, "year" or "years"
             var quadCase = null;                       //quad gets special treatment
 
             //If max sentence is a number, do the math
@@ -41,6 +45,8 @@ $(document).ready(function () {
                 var maxStncMnths = maxStnc * 12;
                 var rangeMin; //integer, computed min sentence
                 var rangeMax; //integer, computed max sentence
+                var sexMin = null; //special calculation for sex offenders on a double
+                var sexMax = null; //special calculation for sex offenders on a double
                 var billStatus = $('input[name="billStatus"]').val().toLowerCase();
                 var fraction;
 
@@ -49,7 +55,6 @@ $(document).ready(function () {
                     fraction = 'one-half';
                     if (maxStnc % 2 == 0){ //if max sentence divides evenly
                         rangeMin = maxStnc / 2 + ' years';
-                        rangeMax = maxStnc * 2 + ' years';
                     }
                     else {
                         if (maxStncMnths > 12) {
@@ -62,8 +67,27 @@ $(document).ready(function () {
                         else {
                             rangeMin = maxStncMnths / 2 + ' months';
                         }
-                        rangeMax = maxStnc * 2 + ' years';
                     }
+                    rangeMax = maxStnc * 2 + ' years';
+
+                    //Now do a special calc for doubles who are sex offenders
+                    if (maxStnc % 3 == 0) { //if max sentence divides evenly
+                        sexMin = (maxStnc / 3) * 2  + ' years'; // 2/3 the max
+                    }
+                    else {
+                        if (maxStncMnths > 12) {
+                            sexMonthVal = (maxStncMnths / 3 * 2) % 12;
+                            sexYearVal = Math.floor(maxStnc / 3 * 2);
+                            sexMonthTxt = (sexMonthVal > 1) ? 'months' : 'month';
+                            sexYearTxt = (sexYearVal > 1) ? 'years' : 'year';
+                            sexMin =  sexYearVal + ' ' +  sexYearTxt + ', '  + sexMonthVal + ' ' +  sexMonthTxt;
+                        }
+                        else {
+                            sexMin = (maxStncMnths / 3) * 2 + ' months';
+                        }
+                    }
+                    sexMax = maxStnc * 3 + ' years'; //triple
+                    answerData.double = 'true';
                     break;
                 case 'triple':
                     fraction = 'two-thirds';
@@ -84,6 +108,7 @@ $(document).ready(function () {
                         }
                         rangeMax = maxStnc * 2 + ' years';
                     }
+                    answerData.triple = 'true';
                     break;
                 case 'quad':
                     if (maxStnc < 20) {
@@ -93,14 +118,12 @@ $(document).ready(function () {
                         rangeMin = maxStnc + ' years';
                     }
                     rangeMax = 'life';
-                    quadCase = 'true';
+                    answerData.quad = 'true';
                     break;
-                default:
-
                 }
-                answerData = {'rangeMin': rangeMin, 'rangeMax': rangeMax,
+                $.extend(answerData, {'rangeMin': rangeMin, 'rangeMax': rangeMax,
                 'offense': offenseTxt, 'fraction': fraction, 'stncMax': maxStnc,
-                'billStatus': billStatus,'quad':quadCase };
+                'billStatus': billStatus, 'sexMin': sexMin, 'sexMax': sexMax});
                 answer = template(answerData);
                 $('.answer').html(answer).show();
             }

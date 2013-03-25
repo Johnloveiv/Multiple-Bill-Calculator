@@ -1,1 +1,18 @@
-Deal with special enhancements for sex crimes
+add app cache
+Deal with special enhancements :
+    - second and previous are sex offenses, then 2/3 max to 3x max
+    - second and previous are sex offense, both offenses victims under 13, then life
+    - third and two priors are:
+        -crimes of violence
+        -sex offense, victims under 18 for all
+        -drug offense with sentence of 10 years or more
+        -any offense with sentence of 12 years or more
+        -or any combination of these
+        then life
+    - fourth and {{two}} priors are
+        -crimes of violence
+        -sex offense, victims under 18 for all
+        -drug offense with sentence of 10 years or more
+        -any offense with sentence of 12 years or more
+        -or any combination of these
+        then life
