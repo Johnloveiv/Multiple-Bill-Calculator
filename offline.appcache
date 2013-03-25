@@ -1,6 +1,7 @@
 CACHE MANIFEST
-# version 21
-# version 342a4
+# version 1
+
+CACHE:
 favicon.ico
 apple-touch-icon-114x114-precomposed.png
 apple-touch-icon-144x144-precomposed.png
@@ -8,15 +9,17 @@ apple-touch-icon-57x57-precomposed.png
 apple-touch-icon-72x72-precomposed.png
 apple-touch-icon.png
 apple-touch-icon-precomposed.png
-css/bootstrap.min.css
+css/readable.bootstrap.min.css
 css/bootstrap-responsive.min.css
 css/main.css
-img/glyphicons-halflings.png
-img/glyphicons-halflings-white.png
-js/main.js
-js/vendor/bootstrap.min.js
-js/vendor/jquery-1.9.0.min.js
 js/vendor/modernizr-2.6.2-respond-1.1.0.min.js
+js/vendor/bootstrap.min.js
+js/vendor/handlebars.js
+js/plugins.js
+js/main.js
+http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic
+http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js
+data.json
 
 NETWORK:
 #http://example.com/api/
