@@ -19,7 +19,7 @@ window.addEventListener('load', function () {
 
 $(document).ready(function () {
     //suggested here http://stackoverflow.com/a/14166308/49359
-    $.getJSON('data.json', null)
+    $.getJSON('data/data.json', null)
     .done(function (data) {
 
         var lawNames = [];
