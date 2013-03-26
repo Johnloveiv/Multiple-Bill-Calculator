@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# version 5
+# version 6
 
 CACHE:
 favicon.ico
@@ -17,6 +17,9 @@ js/vendor/bootstrap.min.js
 js/vendor/handlebars.js
 js/plugins.js
 js/main.js
+img/gaudet.jpg
+img/norris.jpg
+img/mitchell.jpg
 http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic
 http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js
 data/data.json
