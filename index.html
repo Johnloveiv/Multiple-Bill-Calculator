@@ -47,11 +47,11 @@
             </p>
             <div class="well">
             <fieldset>
-                <label>1. My Client is currently charged with:</label>
+                <label><span class="label label-inverse">1</span> My Client is currently charged with:</label>
                 <input type="text" id="selectr" data-link="data.json" class="ajax-typeahead input-xxlarge" data-provide="typeahead" autocomplete="off" placeholder="Name or Statute Number of Offense">
                 <input type="hidden" name="billStatus">
                 </label>
-                <label>2. My Client is a:</label>
+                <label><span class="label label-inverse">2</span> My Client is a:</label>
                 <div class="btn-group bill-status-select" data-toggle="buttons-radio">
                     <button class="btn btn-large btn-primary">Double</button>
                     <button class="btn btn-large btn-primary">Triple</button>
@@ -64,25 +64,25 @@
             </div>
             <script id="answer-template" type="text/x-handlebars-template">
             {{#if noNumber}}
-            <p><b>Answer:</b> The mandatory sentence for {{offense}} is {{noNumber}}.</p>
+            <p><span class="label label-success">Answer:</span> The mandatory sentence for {{offense}} is {{noNumber}}.</p>
             {{else}}
                 {{#if quad}}
-                <p><b>Answer:</b> The sentencing range is <b>{{rangeMin}}</b> to <b>{{rangeMax}}</b>.</p>
-                <p><b>Explanation:</b> For a {{billStatus}} offender, the minimum sentence range is always the maximum
+                <p><span class="label label-success">Answer:</span> The sentencing range is <b>{{rangeMin}}</b> to <b>{{rangeMax}}</b>.</p>
+                <p><b>Explanation</b> For a {{billStatus}} offender, the minimum sentence range is always the maximum
                 possible sentence for the charged offense, but in no case less than 20 years.  The maximum for <b>{{offense}}</b>
                 is {{stncMax}}, so the minimum range here is <b>{{rangeMin}}</b>. The maximum range for a {{billStatus}} is always
                 life.
                 {{else}}
-                <p><b>Answer:</b> The sentencing range is <b>{{rangeMin}}</b> to <b>{{rangeMax}}</b>.</p>
-                <p><b>Explanation:</b> The maximum sentence for <b>{{offense}}</b> is <b>{{stncMax}} years</b>. The minimum sentence
-                for a {{ billStatus}} offender is calculated by finding {{fraction}} of the maximimum sentence
-                for this offense which is <b>{{rangeMin}}</b>.  The maximum sentence for a {{ billStatus}} offender is 
-                calculated by doubling the maximum sentence for this offense which is <b>{{rangeMax}}</b>.
+                <p><span class="label label-success">Answer</span> The sentencing range is <b>{{rangeMin}}</b> to <b>{{rangeMax}}</b>.</p>
+                <p><span class="label label-info">Explanation</span> The maximum sentence for <b>{{offense}}</b> is <b>{{stncMax}}
+                years</b>.  The minimum sentence for a {{ billStatus}} offender is calculated by finding {{fraction}} of
+                the maximimum sentence for this offense which is <b>{{rangeMin}}</b>.  The maximum sentence for a {{ billStatus}}
+                offender is calculated by doubling the maximum sentence for this offense which is <b>{{rangeMax}}</b>.
                 {{/if}}
             {{/if}}
             {{#if caveat}}
             {{#if double}}
-            <p><b>Caveats:</b></p>
+            <p><span class="label label-important">Caveats</span></p>
             <p>1) If this offense and your client's prior offense are <a href="http://hueylaw.org/site/index.php?type=docid&s=79160">
             sex offenses</a>, then the range is <b>{{sexMin}}</b> (2/3 of maximum) to <b>{{sexMax}}</b> (triple the maximum).</p>
             <p>2) If this offense and your client's prior offense are <a href="http://hueylaw.org/site/index.php?type=docid&s=79160">
@@ -90,7 +90,7 @@
             probation, parole, or suspension of sentence.</p>
             {{/if}}
             {{#if triple}}
-            <p><b>Caveat:</b> If this offense and your client's prior two offenses are
+            <p><span class="label label-important">Caveat</span> If this offense and your client's prior two offenses are
             <a href="http://hueylaw.org/site/index.php?type=docid&s=78337">crimes of violence</a>,
             <a href="http://hueylaw.org/site/index.php?type=docid&s=79160"> sex offenses</a> where the victims were under the
             age of 18, drug offenses for which the sentence can be 10 years or more, 
@@ -99,7 +99,7 @@
             probation, parole, or suspension of sentence.</p>
             {{/if}}
             {{#if quad}}
-            <p><b>Caveat:</b>
+            <p><span class="label label-important">Caveat</span>
             If this offense and two of your client's prior three offenses are
             <a href="http://hueylaw.org/site/index.php?type=docid&s=78337">crimes of violence</a>,
             <a href="http://hueylaw.org/site/index.php?type=docid&s=79160"> sex offenses</a> where the victims were under the
