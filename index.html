@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- <html manifest="offline.appcache"> -->
+<html manifest="offline.appcache"> 
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -34,7 +34,7 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li><a href="about.html">About</a></li>
-                            <li><a href="mailto:jmitchel@loyno.edu?subject=Beta">Beta Testers</a></li>
+                            <li><a href="mailto:judsonmitchell@gmail.com?subject=Multiple_Bill_Beta">Beta Testers</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
@@ -47,11 +47,11 @@
             </p>
             <div class="well">
             <fieldset>
-                <label><span class="label label-inverse">1</span> My Client is currently charged with:</label>
+                <label><span class="label label-inverse">&nbsp1&nbsp</span> My Client is currently charged with:</label>
                 <input type="text" id="selectr" data-link="data.json" class="ajax-typeahead input-xxlarge" data-provide="typeahead" autocomplete="off" placeholder="Name or Statute Number of Offense">
                 <input type="hidden" name="billStatus">
                 </label>
-                <label><span class="label label-inverse">2</span> My Client is a:</label>
+                <label><span class="label label-inverse">&nbsp2&nbsp</span> My Client is a:</label>
                 <div class="btn-group bill-status-select" data-toggle="buttons-radio">
                     <button class="btn btn-large btn-primary">Double</button>
                     <button class="btn btn-large btn-primary">Triple</button>
@@ -64,14 +64,14 @@
             </div>
             <script id="answer-template" type="text/x-handlebars-template">
             {{#if noNumber}}
-            <p><span class="label label-success">Answer:</span> The mandatory sentence for {{offense}} is {{noNumber}}.</p>
+            <p><span class="label label-success">Answer</span> The mandatory sentence for {{offense}} is {{noNumber}}.</p>
             {{else}}
                 {{#if quad}}
-                <p><span class="label label-success">Answer:</span> The sentencing range is <b>{{rangeMin}}</b> to <b>{{rangeMax}}</b>.</p>
-                <p><b>Explanation</b> For a {{billStatus}} offender, the minimum sentence range is always the maximum
-                possible sentence for the charged offense, but in no case less than 20 years.  The maximum for <b>{{offense}}</b>
-                is {{stncMax}}, so the minimum range here is <b>{{rangeMin}}</b>. The maximum range for a {{billStatus}} is always
-                life.
+                <p><span class="label label-success">Answer</span> The sentencing range is <b>{{rangeMin}}</b> to <b>{{rangeMax}}</b>.</p>
+                <p><span class="label label-info">Explanation</span> For a {{billStatus}} offender, the minimum sentence range is
+                always the maximum possible sentence for the charged offense, but in no case less than 20 years.  The maximum
+                for <b>{{offense}}</b> is {{stncMax}}, so the minimum range here is <b>{{rangeMin}}</b>. The maximum range for
+                a {{billStatus}} is always life.
                 {{else}}
                 <p><span class="label label-success">Answer</span> The sentencing range is <b>{{rangeMin}}</b> to <b>{{rangeMax}}</b>.</p>
                 <p><span class="label label-info">Explanation</span> The maximum sentence for <b>{{offense}}</b> is <b>{{stncMax}}
