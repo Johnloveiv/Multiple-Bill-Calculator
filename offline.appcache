@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# version 7.5
+# version 8 
 
 CACHE:
 favicon.ico
@@ -27,6 +27,6 @@ about.html
 index.html
 
 NETWORK:
-#http://example.com/api/
+https://google-analytics.com/ga.js
 
 FALLBACK:
