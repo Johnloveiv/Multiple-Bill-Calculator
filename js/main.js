@@ -6,7 +6,7 @@ window.addEventListener('load', function () {
         // Browser downloaded a new app cache.
         // Swap it in and reload the page to get the new code.
             window.applicationCache.swapCache();
-            if (confirm('A new version of this Multiple Bill Calculator is available. Load it?')) {
+            if (confirm('A new version of Multiple Bill Calculator is available. Load it?')) {
                 window.location.reload();
             }
         }

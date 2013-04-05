@@ -30,35 +30,35 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="index.html">Multiple Bill Calculator</a>
+                    <a class="brand hidden-phone" href="index.html">Multiple Bill Calculator</a>
+                    <a class="brand visible-phone" href="index.html">Multiple Bill Calc</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li><a href="about.html">About</a></li>
-                            <li><a href="mailto:judsonmitchell@gmail.com?subject=Multiple Bill Beta">Beta Testers</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
             </div>
         </div>
         <div class="container">
-            <div class="well">
+            <div class="well hidden-phone">
                 <h4>
                     Answer these questions to determine your client's possible sentencing range:
                 </h4>
             </div>
             <div class="well">
-            <fieldset>
-                <label><span class="label label-inverse">1</span> My Client is currently charged with:</label>
-                <input type="text" id="selectr" data-link="data.json" class="ajax-typeahead input-xxlarge" data-provide="typeahead" autocomplete="off" placeholder="Name or Statute Number of Offense">
-                <input type="hidden" name="billStatus">
-                </label>
-                <label><span class="label label-inverse">2</span> My Client is a:</label>
-                <div class="btn-group bill-status-select" data-toggle="buttons-radio">
-                    <button class="btn btn-large btn-primary">Double</button>
-                    <button class="btn btn-large btn-primary">Triple</button>
-                    <button class="btn btn-large btn-primary">Quad</button>
-                </div>
-            </fieldset>
+                <fieldset>
+                    <label><span class="label label-inverse">1</span> My Client is currently charged with:</label>
+                    <input type="text" id="selectr" data-link="data.json" class="ajax-typeahead input-xxlarge" data-provide="typeahead" autocomplete="off" placeholder="Name or Statute Number of Offense">
+                    <input type="hidden" name="billStatus">
+                    </label>
+                    <label><span class="label label-inverse">2</span> My Client is a:</label>
+                    <div class="btn-group bill-status-select" data-toggle="buttons-radio">
+                        <button class="btn btn-large btn-primary">Double</button>
+                        <button class="btn btn-large btn-primary">Triple</button>
+                        <button class="btn btn-large btn-primary">Quad</button>
+                    </div>
+                </fieldset>
             </div>
             <div class="answer well">
             
