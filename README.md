@@ -2,7 +2,7 @@ Multiple Bill Calculator
 ===============
 
 This is a tool to help Louisiana lawyers quickly calculate minimum and maximum sentences 
-under the state's [Habitual Offender Law](http://hueylaw.org/site/index.php?type=docid&s=79154).
+under Louisiana's [Habitual Offender Law](http://hueylaw.org/site/index.php?type=docid&s=79154).
 The project uses many open source tools including:
 
 * [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
